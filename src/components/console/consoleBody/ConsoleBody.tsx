@@ -9,7 +9,7 @@ import {ConsoleRequestField} from '../consoleFields/ConsoleRequestField';
 import {ConsoleResponseField} from '../consoleFields/ConsoleResponseField';
 import dots from '@icons/dots.svg';
 import format from '@icons/format.svg';
-import {Button} from '@shared/styledComponents/styledComponents';
+import {StyledButton} from '@shared/styledComponents/styledComponents';
 import {JSONformater} from '@utils/JSONformater';
 
 export type ConsolePageConsolePropsType = {
@@ -73,9 +73,9 @@ export const ConsoleBody = (props: ConsolePageConsolePropsType) => {
               </div>
             </div>
             <div className={'consoleFooter'}>
-              <Button>
+              <StyledButton>
                 {sendLabel}
-              </Button>
+              </StyledButton>
               <span className={'consoleFooter_formatter'} onClick={() => {
                   //@ts-ignore
                 form.reset({request: JSONformater(values.request), response: response});

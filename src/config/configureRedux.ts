@@ -79,3 +79,21 @@ function makeReducers(history) {
     rootReducer
   );
 }
+
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware()
+          .prepend(
+              // correctly typed middlewares can just be used
+              additionalMiddleware,
+              // you can also type middlewares manually
+              untypedMiddleware as Middleware<
+                  (action: Action<'specialAction'>) => number,
+                  RootState
+                  >
+          )
+          // prepend and concat calls can be chained
+          .concat(logger),
+})

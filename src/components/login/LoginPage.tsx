@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, Form} from 'react-final-form';
 import logo from '@icons/logo.svg';
 import loader from '@icons/loader.svg';
-import {Button} from '@shared/styledComponents/styledComponents';
+import {StyledButton} from '@shared/styledComponents/styledComponents';
 import {LoginField, SubLoginField} from './loginFields';
 import {PasswordField} from './loginFields/PasswordField';
 import {
@@ -46,9 +46,9 @@ export const LoginPage = (props: LoginPagePropsType) => {
             component={PasswordField as any}
             validate={composeValidators(passwordValidator, requiredValidator)}
           />
-          <Button type="submit" className={'loginPage_button'}>
+          <StyledButton type="submit" className={'loginPage_button'}>
             {loginLabel}
-          </Button>
+          </StyledButton>
         </form>)}>
       </Form>
     </div>
