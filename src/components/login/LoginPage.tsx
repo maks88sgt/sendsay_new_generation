@@ -23,14 +23,15 @@ export const LoginPage = (props: LoginPagePropsType) => {
   const loginLabel = isLoading ? <img src={loader} alt='Loader'/> : 'Login';
   const error = loginError ? <LoginFailure loginError={loginError}/> : null;
 
-  return (<div className='main'>
+
+    return (<div className='main'>
     <div className='loginLogo'>
       <img src={logo} alt="logo"/>
     </div>
     <div className='loginForm'>
       <div className='loginFormHeader'>API-console</div>
       {error}
-      <Form onSubmit={values => {
+      <Form onSubmit={(values: object) => {
         tryLogIn(values);
       }}
       render={({handleSubmit}) => (

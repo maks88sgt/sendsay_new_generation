@@ -8,6 +8,8 @@
       "@shared/*": ["shared/*"],
       "@icons/*": ["icons/*"],
       "@redux/*": ["redux/*"],
+      "@config/*": ["config/*"],
+      "@styles/*": ["styles/*"],
     }
   }
 }

@@ -2,11 +2,11 @@ import {
   call, put, select,
 } from 'redux-saga/effects';
 import Sendsay from 'sendsay-api';
-import {ConsoleStore} from '../redux/console/Console.store';
-import {ConsoleActions} from '../redux/console/Console.actions';
+import {ConsoleStore} from '@redux/console/Console.store';
+import {ConsoleActions} from '@redux/console/Console.actions';
 import {getCredentials} from '@utils/sagaSelectors';
-import {HistoryActions} from '../redux/history/History.actions';
-import {ConsoleActionsType} from '../redux/actionsTypes';
+import {HistoryActions} from '@redux/history/History.actions';
+import {ConsoleActionsType} from '@redux/actionsTypes';
 
 export class ConsoleSaga {
   static* updateStore(partialStore: Partial<ConsoleStore>) {
@@ -17,7 +17,7 @@ export class ConsoleSaga {
     const request = action.payload;
     yield ConsoleSaga.updateStore({isFetching: true, request: request});
     const credentials: object = yield select(getCredentials);
-    const sendsay: Sendsay = new Sendsay({auth: {...credentials}});
+    const sendsay = new Sendsay({auth: {...credentials}});
     try {
       const response: Response = yield call(sendsay.request, JSON.parse(request));
       const stringifyResponse = JSON.stringify(response);

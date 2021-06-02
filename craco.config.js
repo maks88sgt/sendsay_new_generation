@@ -9,6 +9,8 @@ module.exports = {
             '@shared': path.resolve(__dirname, "src/shared/"),
             '@icons': path.resolve(__dirname, "src/icons/"),
             '@redux': path.resolve(__dirname, "src/redux/"),
+            '@config': path.resolve(__dirname, "src/config/"),
+            '@styles': path.resolve(__dirname, "src/styles/"),
         }
     },
     plugins: {

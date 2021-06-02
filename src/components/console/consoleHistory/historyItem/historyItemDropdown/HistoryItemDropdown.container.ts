@@ -6,7 +6,7 @@ import {HistoryItemDropdown} from './HistoryItemDropdown';
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     deleteRequestHistoryItem: (name: string) => dispatch(HistoryActions.deleteRequestHistoryItem(name)),
-    callRequestHistoryItem: request => dispatch(HistoryActions.callRequestHistoryItem(request)),
+    callRequestHistoryItem: (request: string) => dispatch(HistoryActions.callRequestHistoryItem(request)),
   };
 };
 

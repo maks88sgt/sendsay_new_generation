@@ -20,6 +20,11 @@ export type ConsolePageConsolePropsType = {
     sendRequest: (request: string) => void;
 }
 
+export type FormValuesType={
+    request: string;
+    response:string;
+}
+
 export const ConsoleBody = (props: ConsolePageConsolePropsType) => {
   const {
     isFetching, request, response, requestSuccess, sendRequest,
@@ -27,10 +32,12 @@ export const ConsoleBody = (props: ConsolePageConsolePropsType) => {
 
   const sendLabel = isFetching ? <img src={loader} alt='Loader'/> : 'Send';
 
-  return (
-    <Form onSubmit={values => sendRequest(JSONformater(values.request))}
+  // @ts-ignore
+    return (
+    <Form onSubmit={(values: FormValuesType) => sendRequest(JSONformater(values.request))}
       initialValues={{request}}
       render={({
+                   // @ts-ignore
         handleSubmit, form, values,
       }) => {
         return (
@@ -55,7 +62,7 @@ export const ConsoleBody = (props: ConsolePageConsolePropsType) => {
               <div className={'consoleBody_rightPart_separator'}><img src={dots} alt={'separator'}/></div>
               <div className={'consoleBody_rightPart'}>
                 <Field name="response"
-                  initialValue={response as any}
+                  initialValue={response as string}
                   component={ConsoleResponseField as any}>
                   {({input, meta}) => {
                     return <ConsoleResponseField response={response}
@@ -70,6 +77,7 @@ export const ConsoleBody = (props: ConsolePageConsolePropsType) => {
                 {sendLabel}
               </Button>
               <span className={'consoleFooter_formatter'} onClick={() => {
+                  //@ts-ignore
                 form.reset({request: JSONformater(values.request), response: response});
               }}><img src={format} alt={'format'}/>Reformat</span>
             </div>

@@ -23,6 +23,7 @@ export const HistoryItem = (props: HistoryItemPropsType) => {
 
   useEffect(() => {
     document.body.addEventListener('click', event => {
+      // @ts-ignore
       if (ref.current && ref.current.contains(event.target)) {
         return;
       }
@@ -40,7 +41,9 @@ export const HistoryItem = (props: HistoryItemPropsType) => {
   function handleDropDownClick() {
     setIsDropdownOpen(!isDropDownOpen);
     if (ref.current != null) {
+      // @ts-ignore
       setDropDownWidth(ref.current.offsetWidth);
+      // @ts-ignore
       const coords = ref.current.getBoundingClientRect();
       setDropDownCoords({left: coords.left - 25, top: coords.top + coords.height});
     }

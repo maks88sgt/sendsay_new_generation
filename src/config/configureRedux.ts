@@ -8,7 +8,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import {connectRouter, routerMiddleware} from 'connected-react-router';
-import {BrowserHistory, createBrowserHistory} from 'history';
+import {createBrowserHistory} from 'history';
 import {authReducer} from '@redux/auth/Auth.reducer';
 import {persistMigrations} from './persistMigrations';
 import {persistTransform} from './persistTransform';
@@ -18,6 +18,7 @@ import {MigrationManifest} from 'redux-persist/es/types';
 import {historyReducer} from '@redux/history/History.reducer';
 
 function getComposer() {
+  // @ts-ignore
   const devtoolsComposer = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'];
   if (devtoolsComposer) {
     return devtoolsComposer({trace: true, traceLimit: 25});
@@ -28,7 +29,8 @@ function getComposer() {
 
 const sagaMiddleware = createSagaMiddleware();
 
-export function makeMiddleware(history: BrowserHistory) {
+// @ts-ignore
+export function makeMiddleware(history) {
   const middleware = applyMiddleware(
     routerMiddleware(history),
     sagaMiddleware,
@@ -55,7 +57,8 @@ export function configureRedux() {
   };
 }
 
-function makeReducers(history: BrowserHistory) {
+// @ts-ignore
+function makeReducers(history) {
   const rootReducer = combineReducers({
     router: connectRouter(history),
     auth: authReducer,
