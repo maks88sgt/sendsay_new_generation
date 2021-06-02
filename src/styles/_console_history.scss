@@ -1,0 +1,41 @@
+.consoleHistory {
+  height: 50px;
+  width: 100%;
+  margin: 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &_list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  &_list::-webkit-scrollbar {
+    height: 0px;
+    background: transparent;
+  }
+
+  &_clearButton {
+    float: right;
+    position: absolute;
+    right: 1%;
+    width: 65px;
+    height: 50px;
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border: black;
+
+    div {
+      width: 15px;
+      background: linear-gradient(269.93deg, #F6F6F6 0.06%, rgba(246, 246, 246, 0) 99.93%);
+    }
+  }
+
+}

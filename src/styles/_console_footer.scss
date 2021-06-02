@@ -1,0 +1,22 @@
+.consoleFooter {
+  background-color: white;
+  width: 99%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  &_formatter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+  }
+}
