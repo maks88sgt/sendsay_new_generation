@@ -1,5 +1,5 @@
 import {createTransform} from 'redux-persist';
-import {State} from './State';
+import {State} from '../State';
 
 function filterStateProperties(
   state: State,

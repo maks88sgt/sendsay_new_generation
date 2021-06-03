@@ -3,12 +3,12 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {BrowserRouter} from 'react-router-dom';
 
-import {configureRedux} from '@config/configureRedux';
+import {configureAppStore} from '@config/redux/configureRedux';
 import {AppRouterContainer} from '@components/appRouter/AppRouter.container';
 
 const {
   store, persistor,
-} = configureRedux();
+} = configureAppStore();
 
 
 function App(): JSX.Element {
