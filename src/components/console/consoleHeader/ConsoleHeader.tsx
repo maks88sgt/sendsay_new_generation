@@ -37,7 +37,7 @@ export const ConsoleHeader = (props: ConsolePageHeaderPropsType) => {
           <span className='loginFormHeader'>API-console</span>
         </div>
         <div className='consoleHeader_rightBlock'>
-          <span className='consoleHeader_loginLabel'>{login} {sublogin ? `: ${sublogin}` : ''}</span>
+          <span className='consoleHeader_loginLabel' style={{cursor: 'default'}}>{login} {sublogin ? `: ${sublogin}` : ''}</span>
           <span onClick={() => logOut()}>Log out<img src={logOutIcon} alt='log out'/></span>
           <span onClick={() => toggleFullScreenMode()}><img src={isFullScreen ? notFullScreen : fullScreen}
             alt='toggle full screen mode'/></span>
